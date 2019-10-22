@@ -3,5 +3,8 @@
   "description": "Opinionated style guide for maximizing readability and less buggy code.",
   "language": "en",
   "author": "Martin Juul",
-  "version": "4.0.0-alpha.6"
+  "version": "4.0.0-alpha.6",
+  "plugins": [
+    "mermaid-gb3"
+  ]
 }
