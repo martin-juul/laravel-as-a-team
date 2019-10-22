@@ -1,0 +1,333 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="conventions">Conventions</h1>
+<p>This section deals with how to apply code conventions, and is geared towards new team members.</p>
+<h2 id="how-to-be-a-good-contributor">How to be a good contributor</h2>
+<p>To be a good contributor, you must be able to follow direction.</p>
+<p>If you come across a solution you cannot solve, or not sure on how to approach a problem.
+Then use the steps below, before you ask for help. It is totally okay to ask for help, but you are required to make an effort on solving it on your own.</p>
+<p>This way, when you do ask for help - you can show what you tried, which resources on the subject you found and what your goal is.
+Balance the time for this. There&apos;s no defined limit on how much time you should use.</p>
+<p>No one here knows everything. We&apos;re humans, not Google.</p>
+<h3 id="example-troubleshooting-steps">Example Troubleshooting Steps</h3>
+<p>Use these steps as a rule of thumb, when troubleshooting an issue.</p>
+<h4 id="case">Case</h4>
+<p>When a user is on the login page, but not currently logged in - and then tries to login after 2 hours without refreshing the page.
+A HTTP 500 error is being returned.</p>
+<h4 id="step-1---analysing-logs">Step 1 - Analysing logs</h4>
+<p>Anything that returns a status code between 400 and 503 - means that something threw an exception in the backend.
+So the first thing to do is checking the application log. You can locate it here:</p>
+<p><code>storage/logs/laravel-YEAR-MONTH-DATE.log</code></p>
+<p>In this particular case it could show the following:</p>
+<pre><code class="lang-text">[2019-010-22 18:27:00] local.ERROR: exception &apos;Illuminate\Session\TokenMismatchException&apos; in /home/vagrant/code/vendor/compiled.php:2550
+Stack trace:
+#0 /home/vagrant/code/app/Http/Middleware/VerifyCsrfToken.php(17): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#1 /home/vagrant/code/vendor/compiled.php(9197): App\Http\Middleware\VerifyCsrfToken-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#2 /home/vagrant/code/vendor/compiled.php(12377): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#3 /home/vagrant/code/vendor/compiled.php(9197): Illuminate\View\Middleware\ShareErrorsFromSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#4 /home/vagrant/code/vendor/compiled.php(11067): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#5 /home/vagrant/code/vendor/compiled.php(9197): Illuminate\Session\Middleware\StartSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#6 /home/vagrant/code/vendor/compiled.php(12079): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#7 /home/vagrant/code/vendor/compiled.php(9197): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#8 /home/vagrant/code/vendor/compiled.php(12027): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#9 /home/vagrant/code/vendor/compiled.php(9197): Illuminate\Cookie\Middleware\EncryptCookies-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#10 /home/vagrant/code/vendor/compiled.php(2589): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#11 /home/vagrant/code/vendor/compiled.php(9197): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#12 /home/vagrant/code/vendor/platform/installer/src/Middleware/Installer.php(57): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#13 /home/vagrant/code/vendor/compiled.php(9197): Platform\Installer\Middleware\Installer-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#14 [internal function]: Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#15 /home/vagrant/code/vendor/compiled.php(9188): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#16 /home/vagrant/code/vendor/compiled.php(1996): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))
+#17 /home/vagrant/code/vendor/compiled.php(1983): Illuminate\Foundation\Http\Kernel-&gt;sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#18 /home/vagrant/code/public/index.php(68): Illuminate\Foundation\Http\Kernel-&gt;handle(Object(Illuminate\Http\Request))
+#19 {main}
+</code></pre>
+<p>First we see the <code>Illuminate\Session\TokenMismatchException</code> is being thrown.</p>
+<p>But the interesting part is looking at the stack.
+As Laravel use the excellent <a href="https://packagist.org/packages/monolog/monolog" target="_blank">monolog/monolog</a> library, we&apos;re getting tons of hints of where the issue could be.</p>
+<p>The interesting line here is the one beginning with <em>#0</em></p>
+<pre><code class="lang-text">#0 /home/vagrant/code/app/Http/Middleware/VerifyCsrfToken.php(17): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+</code></pre>
+<p>It explains that the middleware responsible for verifying the Cross Site Request Forgery token has failed the request</p>
+<blockquote>
+<p>Read more about <a href="https://laravel.com/docs/6.x/csrf" target="_blank">CSRF</a></p>
+</blockquote>
+<p>So now we have found what&apos;s wrong. Now the question is, how do we fix it?</p>
+<p>Say we&apos;re not finding relevant links on Google, or unsure about how to mitigate it.
+Then now is the perfect time to ask a team member or maintainer for help.</p>
+<p>As we have found a way on how to reproduce the error and have relevant logs.</p>
+<h4 id="step-3---asking-for-help-in-a-meaningful-way">Step 3 - Asking for help in a meaningful way</h4>
+<p>This might be obvious.
+But in the heat of the moment you could be tempted to write <em>I have a problem, can you come and fix it?</em><br>or you send a screenshot of the 500 page with no context.</p>
+<p>This isn&apos;t helpful to anyone. Context switching is extremely difficult for anyone.</p>
+<p><img src="Conventions/ProgrammerInterrupted.png" alt="Programmer Interrupted"></p>
+<p>Instead go on Slack, and preferably write in the #general channel.
+Someone else might be able to answer you. While you&apos;re waiting for a reply, go work on something else.
+In 99.9% of the tasks we have, there&apos;s multiple things to do.</p>
+<h5 id="requesting-help">Requesting help</h5>
+<p>If the issue is a task in Gitlab. Add a link to the task.</p>
+<blockquote>
+<p>Hi.
+I&apos;m currently facing an issue regarding authenticating on the <code>https://homestead.test/auth/login</code> route.
+When i input a known good username/password combination, i get a 500 error.
+I checked the laravel.log file, and i can see a <code>Illuminate\Session\TokenMismatchException</code> exception is being thrown.</p>
+<p>In <code>resources/views/auth/login.blade.php</code> the csrf token is being added</p>
+<p>This is the exception stack being thrown:</p>
+<p>[2019-010-22 18:27:00] local.ERROR: exception &apos;Illuminate\Session\TokenMismatchException&apos; in /home/vagrant/code/vendor/compiled.php:2550</p>
+<p>Stack trace:</p>
+<h1 id="0-homevagrantcodeapphttpmiddlewareverifycsrftokenphp17-illuminatefoundationhttpmiddlewareverifycsrftoken-handleobjectilluminatehttprequest-objectclosure">0 /home/vagrant/code/app/Http/Middleware/VerifyCsrfToken.php(17): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))</h1>
+<h1 id="1-homevagrantcodevendorcompiledphp9197-apphttpmiddlewareverifycsrftoken-handleobjectilluminatehttprequest-objectclosure">1 /home/vagrant/code/vendor/compiled.php(9197): App\Http\Middleware\VerifyCsrfToken-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))</h1>
+<h1 id="2-homevagrantcodevendorcompiledphp12377-illuminatepipelinepipeline-illuminatepipelineclosureobjectilluminatehttprequest">2 /home/vagrant/code/vendor/compiled.php(12377): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline{closure}(Object(Illuminate\Http\Request))</h1>
+<h1 id="3-homevagrantcodevendorcompiledphp9197-illuminateviewmiddlewareshareerrorsfromsession-handleobjectilluminatehttprequest-objectclosure">3 /home/vagrant/code/vendor/compiled.php(9197): Illuminate\View\Middleware\ShareErrorsFromSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))</h1>
+<h1 id="4-homevagrantcodevendorcompiledphp11067-illuminatepipelinepipeline-illuminatepipelineclosureobjectilluminatehttprequest">4 /home/vagrant/code/vendor/compiled.php(11067): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline{closure}(Object(Illuminate\Http\Request))</h1>
+<h1 id="5-homevagrantcodevendorcompiledphp9197-illuminatesessionmiddlewarestartsession-handleobjectilluminatehttprequest-objectclosure">5 /home/vagrant/code/vendor/compiled.php(9197): Illuminate\Session\Middleware\StartSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))</h1>
+<h1 id="6-homevagrantcodevendorcompiledphp12079-illuminatepipelinepipeline-illuminatepipelineclosureobjectilluminatehttprequest">6 /home/vagrant/code/vendor/compiled.php(12079): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline{closure}(Object(Illuminate\Http\Request))</h1>
+<h1 id="7-homevagrantcodevendorcompiledphp9197-illuminatecookiemiddlewareaddqueuedcookiestoresponse-handleobjectilluminatehttprequest-objectclosure">7 /home/vagrant/code/vendor/compiled.php(9197): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))</h1>
+<h1 id="8-homevagrantcodevendorcompiledphp12027-illuminatepipelinepipeline-illuminatepipelineclosureobjectilluminatehttprequest">8 /home/vagrant/code/vendor/compiled.php(12027): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline{closure}(Object(Illuminate\Http\Request))</h1>
+<h1 id="9-homevagrantcodevendorcompiledphp9197-illuminatecookiemiddlewareencryptcookies-handleobjectilluminatehttprequest-objectclosure">9 /home/vagrant/code/vendor/compiled.php(9197): Illuminate\Cookie\Middleware\EncryptCookies-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))</h1>
+<h1 id="10-homevagrantcodevendorcompiledphp2589-illuminatepipelinepipeline-illuminatepipelineclosureobjectilluminatehttprequest">10 /home/vagrant/code/vendor/compiled.php(2589): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline{closure}(Object(Illuminate\Http\Request))</h1>
+<h1 id="11-homevagrantcodevendorcompiledphp9197-illuminatefoundationhttpmiddlewarecheckformaintenancemode-handleobjectilluminatehttprequest-objectclosure">11 /home/vagrant/code/vendor/compiled.php(9197): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))</h1>
+<h1 id="12-homevagrantcodevendorplatforminstallersrcmiddlewareinstallerphp57-illuminatepipelinepipeline-illuminatepipelineclosureobjectilluminatehttprequest">12 /home/vagrant/code/vendor/platform/installer/src/Middleware/Installer.php(57): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline{closure}(Object(Illuminate\Http\Request))</h1>
+<h1 id="13-homevagrantcodevendorcompiledphp9197-platforminstallermiddlewareinstaller-handleobjectilluminatehttprequest-objectclosure">13 /home/vagrant/code/vendor/compiled.php(9197): Platform\Installer\Middleware\Installer-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))</h1>
+<h1 id="14-internal-function-illuminatepipelinepipeline-illuminatepipelineclosureobjectilluminatehttprequest">14 [internal function]: Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline{closure}(Object(Illuminate\Http\Request))</h1>
+<h1 id="15-homevagrantcodevendorcompiledphp9188-calluserfuncobjectclosure-objectilluminatehttprequest">15 /home/vagrant/code/vendor/compiled.php(9188): call_user_func(Object(Closure), Object(Illuminate\Http\Request))</h1>
+<h1 id="16-homevagrantcodevendorcompiledphp1996-illuminatepipelinepipeline-thenobjectclosure">16 /home/vagrant/code/vendor/compiled.php(1996): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))</h1>
+<h1 id="17-homevagrantcodevendorcompiledphp1983-illuminatefoundationhttpkernel-sendrequestthroughrouterobjectilluminatehttprequest">17 /home/vagrant/code/vendor/compiled.php(1983): Illuminate\Foundation\Http\Kernel-&gt;sendRequestThroughRouter(Object(Illuminate\Http\Request))</h1>
+<h1 id="18-homevagrantcodepublicindexphp68-illuminatefoundationhttpkernel-handleobjectilluminatehttprequest">18 /home/vagrant/code/public/index.php(68): Illuminate\Foundation\Http\Kernel-&gt;handle(Object(Illuminate\Http\Request))</h1>
+<h1 id="19-main">19 {main}</h1>
+</blockquote>
+<h5 id="answering-requests">Answering requests</h5>
+<p>Now someone else has the chance to look over what&apos;s going on.</p>
+<p>If that person is able to spot the issue, you could get an answer like:</p>
+<blockquote>
+<p>Oh yeah. There&apos;s a time limit on CSRF tokens.
+I can see in the ticket it happens after 3 hours. It&apos;s a necessary security measure.
+I&apos;d solve it by redirecting the user, with a warning message to try again.</p>
+<p>Go to the ExceptionHandler in <code>app/Exceptions/Handler.php</code>
+And add the following code to the <code>render() method</code></p>
+<pre><code class="lang-php">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">if</span> ($exception <span class="hljs-keyword">instanceof</span> TokenMismatchException) {
+            <span class="hljs-keyword">return</span> response()-&gt;redirect(<span class="hljs-string">&apos;login&apos;</span>)-&gt;with(<span class="hljs-string">&apos;status&apos;</span>, <span class="hljs-string">&apos;Token expired, please try again.&apos;</span>);
+        }
+    }
+</code></pre>
+</blockquote>
+<p>You might be asked to provide additional details to diagnose the issue.</p>
+<p>But don&apos;t expect everyone to solve any issue. Work as a team, and figure out a solution.</p>
+<p>If you don&apos;t get an answer within an hour, you should contact the project manager for guidance.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-10-22T16:06:05.261Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-22T16:08:35.945Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
