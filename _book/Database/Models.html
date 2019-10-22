@@ -1,0 +1,402 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Models · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Eloquent-Snippets.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Conventions/">
+            
+                <a href="../Conventions/">
+            
+                    
+                    Conventions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Conventions/CodeStyle.html">
+            
+                <a href="../Conventions/CodeStyle.html">
+            
+                    
+                    Code Style
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Database
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="Models.html">
+            
+                <a href="Models.html">
+            
+                    
+                    Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="Eloquent-Snippets.html">
+            
+                <a href="Eloquent-Snippets.html">
+            
+                    
+                    Eloquent Snippets
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    Http
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Http/Controllers.html">
+            
+                <a href="../Http/Controllers.html">
+            
+                    
+                    Controllers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Models</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="models">Models</h1>
+<h2 id="return-types">Return types</h2>
+<p>You might be tempted to use return types, as introduced in php 7.0 when defining relationships and scopes.<br>As seen below:</p>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Article</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractModel</span> </span>{
+    <span class="hljs-comment">// model definitions</span>
+
+    <span class="hljs-comment">/**
+    * Filter out non public articles
+    * 
+    * <span class="hljs-doctag">@param</span> \Illuminate\Database\Eloquent\Builder $query
+    * <span class="hljs-doctag">@return</span> \Illuminate\Database\Eloquent\Builder
+    */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">scopeWherePublic</span><span class="hljs-params">(Builder $query)</span>: \<span class="hljs-title">Illuminate</span>\<span class="hljs-title">Database</span>\<span class="hljs-title">Eloquent</span>\<span class="hljs-title">Builder</span>
+    </span>{
+        <span class="hljs-keyword">return</span> $query-&gt;where(<span class="hljs-string">&apos;public&apos;</span>, <span class="hljs-string">&apos;=&apos;</span>, <span class="hljs-keyword">true</span>);
+    }
+
+    <span class="hljs-comment">/**
+    * Article Author 
+    * 
+    * <span class="hljs-doctag">@return</span> App\Models\User
+    */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">author</span><span class="hljs-params">()</span>: <span class="hljs-title">User</span>
+    </span>{
+        <span class="hljs-keyword">return</span> $this-&gt;belongsTo(User::class);
+    }
+}
+</code></pre>
+<p>This will work fine in most cases. But when you implement a caching solution, that&apos;s when it&apos;ll start to break.</p>
+<p>The common way to create a caching library for eloquent, is to extend <code>\Illuminate\Database\Eloquent\Builder</code> - and replace it at runtime in the service container</p>
+<p>Instead you should define the type hints in docblocks:</p>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Models</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Article</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractModel</span> </span>{
+    <span class="hljs-comment">// model definitions</span>
+
+    <span class="hljs-comment">/**
+    * Filter out non public articles
+    * 
+    * <span class="hljs-doctag">@param</span> \Illuminate\Database\Eloquent\Builder $query
+    * <span class="hljs-doctag">@return</span> void
+    */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">scopeWherePublic</span><span class="hljs-params">($query)</span>
+    </span>{
+        $query-&gt;where(<span class="hljs-string">&apos;public&apos;</span>, <span class="hljs-string">&apos;=&apos;</span>, <span class="hljs-keyword">true</span>);
+    }
+
+    <span class="hljs-comment">/**
+    * Article Author 
+    * 
+    * <span class="hljs-doctag">@return</span> App\Models\User
+    */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">author</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">return</span> $this-&gt;belongsTo(User::class);
+    }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Database">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Eloquent-Snippets.html" class="navigation navigation-next " aria-label="Next page: Eloquent Snippets">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Models","level":"1.3.1","depth":2,"next":{"title":"Eloquent Snippets","level":"1.3.2","depth":2,"path":"Database/Eloquent-Snippets.md","ref":"Database/Eloquent-Snippets.md","articles":[]},"previous":{"title":"Database","level":"1.3","depth":1,"path":"Database/README.md","ref":"Database/README.md","articles":[{"title":"Models","level":"1.3.1","depth":2,"path":"Database/Models.md","ref":"Database/Models.md","articles":[]},{"title":"Eloquent Snippets","level":"1.3.2","depth":2,"path":"Database/Eloquent-Snippets.md","ref":"Database/Eloquent-Snippets.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Database/Models.md","mtime":"2019-10-21T13:49:27.622Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-22T17:54:44.017Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
